@@ -21,8 +21,8 @@ const NOTES = [
 export default function Piano() {
   const playSound = (btn, name, click) => {
     const isMobile = navigator.userAgentData.mobile;
-    if (click && isMobile) return;
     toast.error(`click: ${click}, mobile: ${isMobile}`);
+    if (click && isMobile) return;
 
     createjs.Sound.play(`piano.${name}`);
 
