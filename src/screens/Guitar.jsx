@@ -14,9 +14,6 @@ const CHORDS = [
 
 export default function Guitar() {
   const playSound = (btn, name, click) => {
-    const isMobile = navigator.userAgentData.mobile;
-    if (click && isMobile) return;
-
     createjs.Sound.play(`guitar.${name}`);
 
     setTimeout(() => btn.blur(), 200);
