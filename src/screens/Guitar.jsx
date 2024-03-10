@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 
 const CHORDS = [
-  { name: "d_maj", key: "z" },
-  { name: "a_maj", key: "x" },
-  { name: "e_maj", key: "c" },
-  { name: "a_min", key: "v" },
-  { name: "e_min", key: "b" },
-  { name: "d_min", key: "n" },
-  { name: "g_maj", key: "m" },
-  { name: "c_maj", key: "," },
+  { name: "d_maj", key: "z", label: "D" },
+  { name: "a_maj", key: "x", label: "A" },
+  { name: "e_maj", key: "c", label: "E" },
+  { name: "a_min", key: "v", label: "Am" },
+  { name: "e_min", key: "b", label: "Em" },
+  { name: "d_min", key: "n", label: "Dm" },
+  { name: "g_maj", key: "m", label: "G" },
+  { name: "c_maj", key: ",", label: "C" },
 ];
 
 export default function Guitar() {
@@ -40,7 +40,7 @@ export default function Guitar() {
       </div>
       <div className="grid grid-cols-8 gap-2">
         {CHORDS.map((chord, i) => {
-          const { name, key } = chord;
+          const { name, key, label } = chord;
 
           return (
             <div
@@ -54,6 +54,7 @@ export default function Guitar() {
                 onClick={(e) => playSound(e.target, name)}
                 className="group outline-none"
               >
+                <p className="font-semibold text-gray-600">{label}</p>
                 <img
                   src={`/icons/${key}.svg`}
                   alt="z-button"
