@@ -36,7 +36,7 @@ export default function Guitar() {
 
   return (
     <main className="h-screen p-8 flex flex-col justify-between">
-      <div>
+      <div className="mb-16">
         <div className="flex flex-col justify-center items-center gap-2 text-center">
           <p className="text-4xl font-bold">Guitar</p>
           <img src="/icons/guitar.svg" className="w-48" />
