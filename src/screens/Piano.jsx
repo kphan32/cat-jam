@@ -18,7 +18,10 @@ const NOTES = [
 ];
 
 export default function Piano() {
-  const playSound = (btn, name) => {
+  const playSound = (btn, name, click) => {
+    const isMobile = navigator.userAgentData.mobile;
+    if (click && isMobile) return;
+
     createjs.Sound.play(`piano.${name}`);
 
     setTimeout(() => btn.blur(), 200);
@@ -58,8 +61,8 @@ export default function Piano() {
                   <div key={name} className="col-span-2 flex justify-center">
                     <button
                       id={`${name}-btn`}
-                      onTouchStart={(e) => playSound(e.target, name)}
-                      onClick={(e) => playSound(e.target, name)}
+                      onTouchStart={(e) => playSound(e.target, name, false)}
+                      onClick={(e) => playSound(e.target, name, true)}
                       className="group outline-none"
                     >
                       <p className="font-semibold">{label}</p>
@@ -90,8 +93,8 @@ export default function Piano() {
                   >
                     <button
                       id={`${name}-btn`}
-                      onTouchStart={(e) => playSound(e.target, name)}
-                      onClick={(e) => playSound(e.target, name)}
+                      onTouchStart={(e) => playSound(e.target, name, false)}
+                      onClick={(e) => playSound(e.target, name, true)}
                       className="group outline-none"
                     >
                       <p className="font-semibold">{label}</p>
@@ -119,8 +122,8 @@ export default function Piano() {
                   <div key={name} className="flex justify-center">
                     <button
                       id={`${name}-btn`}
-                      onTouchStart={(e) => playSound(e.target, name)}
-                      onClick={(e) => playSound(e.target, name)}
+                      onTouchStart={(e) => playSound(e.target, name, false)}
+                      onClick={(e) => playSound(e.target, name, true)}
                       className="group outline-none"
                     >
                       <p className="font-semibold">{label}</p>

@@ -13,7 +13,10 @@ const CHORDS = [
 ];
 
 export default function Guitar() {
-  const playSound = (btn, name) => {
+  const playSound = (btn, name, click) => {
+    const isMobile = navigator.userAgentData.mobile;
+    if (click && isMobile) return;
+
     createjs.Sound.play(`guitar.${name}`);
 
     setTimeout(() => btn.blur(), 200);
@@ -54,8 +57,8 @@ export default function Guitar() {
               >
                 <button
                   id={`${name}-btn`}
-                  onTouchStart={(e) => playSound(e.target, name)}
-                  onClick={(e) => playSound(e.target, name)}
+                  onTouchStart={(e) => playSound(e.target, name, false)}
+                  onClick={(e) => playSound(e.target, name, true)}
                   className="group outline-none"
                 >
                   <p className="font-semibold">{label}</p>
