@@ -145,8 +145,11 @@ export default function Piano() {
           </div>
         </div>
       </div>
-      <Link to="/instruments">
-        <img src="/icons/back.svg" className="w-full aspect-auto" />
+      <Link
+        to="/instruments"
+        className="w-full flex justify-center items-center"
+      >
+        <img src="/icons/back.svg" className="h-24 aspect-auto" />
       </Link>
     </main>
   );
