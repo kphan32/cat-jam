@@ -1,8 +1,7 @@
 import { useEffect } from "react";
-import z from '/icons/z.svg'
 
 const CHORDS = [
-  { name: "d_maj", key: "z"},
+  { name: "d_maj", key: "z" },
   { name: "a_maj", key: "x" },
   { name: "e_maj", key: "c" },
   { name: "a_min", key: "v" },
@@ -46,12 +45,11 @@ export default function Guitar() {
                 i % 2 === 0 ? "items-start" : "items-end"
               }`}
             >
-              <img src ={z} alt="z-button" />
               <button
                 onClick={playSound(name)}
                 // className="w-24 h-24 bg-red-300"
               >
-                {key} <br /> ({name})
+                <img src={`/icons/${key}.svg`} alt="z-button" />
               </button>
             </div>
           );
