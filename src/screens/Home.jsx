@@ -5,9 +5,9 @@ export default function Home() {
       <h1 className="text-4xl">Cat Jam</h1>
       <div className="flex justify-center items-center gap-4">
         <Link to="/instruments">
-          <button className="w-64 h-32 bg-red-400">START</button>
+          <img src= "/icons/start.svg"></img>
         </Link>
-        <button className="w-64 h-32 bg-blue-400">HELP</button>
+        <img src= "/icons/help.svg"></img>
       </div>
     </main>
   );
