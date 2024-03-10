@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const NOTES = [
@@ -21,6 +22,7 @@ export default function Piano() {
   const playSound = (btn, name, click) => {
     const isMobile = navigator.userAgentData.mobile;
     if (click && isMobile) return;
+    toast.error(`click: ${click}, mobile: ${isMobile}`);
 
     createjs.Sound.play(`piano.${name}`);
 
