@@ -2,21 +2,22 @@ import { Link } from "react-router-dom";
 
 export default function SelectInstrument() {
   return (
-    <main className="h-screen p-4 flex flex-col justify-center items-center gap-4">
+    <main className="p-4 flex flex-col justify-center items-center gap-4 bg-green">
       <h1 className="text-4xl">Select Instrument</h1>
-      <div className="w-full grid grid-cols-3 gap-4">
+      {/* wait hi can we resize the icons to make it slightly smaller? */}
+      <div className="grid grid-cols-3 gap-4 w-128 h-128">
         <Link to="/guitar">
-          <button className="w-full h-48 bg-red-400">GUITAR</button>
+          <img src = "icons/guitar.svg"></img>
         </Link>
         <Link to="/piano">
-          <button className="w-full h-48 bg-green-400">PIANO</button>
+        <img src = "icons/piano.svg"></img>
         </Link>
         <Link to="/drumset">
-          <button className="w-full h-48 bg-blue-400">DRUMSET</button>
+        <img src = "icons/drums.svg"></img>
         </Link>
       </div>
-      <Link to="/" className="w-full">
-        <button className="w-full h-12 bg-gray-400">BACK</button>
+      <Link to="/" className="justify-center">
+      <img src = "icons/back.svg"></img>
       </Link>
     </main>
   );
