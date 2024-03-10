@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const CHORDS = [
   { name: "d_maj", key: "z" },
@@ -12,8 +12,10 @@ const CHORDS = [
 ];
 
 export default function Guitar() {
-  const playSound = (name) => () => {
+  const playSound = (btn, name) => {
     createjs.Sound.play(`guitar.${name}`);
+
+    setTimeout(() => btn.blur(), 200);
   };
 
   useEffect(() => {
@@ -21,7 +23,9 @@ export default function Guitar() {
       const chord = CHORDS.find((chord) => chord.key === e.key);
       if (!chord) return;
 
-      createjs.Sound.play(`guitar.${chord.name}`);
+      const btn = document.getElementById(`${chord.name}-btn`);
+      btn?.focus();
+      btn?.click();
     };
 
     document.addEventListener("keypress", handleKeyPress);
@@ -46,10 +50,20 @@ export default function Guitar() {
               }`}
             >
               <button
-                onClick={playSound(name)}
-                // className="w-24 h-24 bg-red-300"
+                id={`${name}-btn`}
+                onClick={(e) => playSound(e.target, name)}
+                className="group outline-none"
               >
-                <img src={`/icons/${key}.svg`} alt="z-button" />
+                <img
+                  src={`/icons/${key}.svg`}
+                  alt="z-button"
+                  className="group-active:hidden group-focus:hidden"
+                />
+                <img
+                  src={`/icons/${key}_press.svg`}
+                  alt="z-button"
+                  className="hidden group-active:block group-focus:block"
+                />
               </button>
             </div>
           );
