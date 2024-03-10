@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const CHORDS = [
   { name: "d_maj", key: "z", label: "D" },
@@ -34,8 +35,8 @@ export default function Guitar() {
   }, []);
 
   return (
-    <main className="p-8 flex flex-col justify-between items-center">
-      <div className="h-[50vh] flex flex-col justify-center text-center">
+    <main className="p-8 grid grid-rows-2">
+      <div className="flex flex-col justify-center text-center">
         <p className="text-xl font-bold">cat pic here</p>
       </div>
       <div className="grid grid-cols-8 gap-2">
@@ -45,7 +46,7 @@ export default function Guitar() {
           return (
             <div
               key={name}
-              className={`h-36 flex justify-center ${
+              className={`h-[150%] flex justify-center ${
                 i % 2 === 0 ? "items-start" : "items-end"
               }`}
             >
@@ -70,6 +71,9 @@ export default function Guitar() {
           );
         })}
       </div>
+      <Link to="/instruments" className="fixed w-full bottom-0 left-0">
+        <img src="/icons/back.svg" className="w-full aspect-auto" />
+      </Link>
     </main>
   );
 }
