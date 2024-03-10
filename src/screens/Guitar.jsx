@@ -35,43 +35,46 @@ export default function Guitar() {
   }, []);
 
   return (
-    <main className="p-8 grid grid-rows-2">
-      <div className="flex flex-col justify-center text-center">
-        <p className="text-xl font-bold">cat pic here</p>
-      </div>
-      <div className="grid grid-cols-8 gap-2">
-        {CHORDS.map((chord, i) => {
-          const { name, key, label } = chord;
+    <main className="h-screen p-8 flex flex-col justify-between">
+      <div>
+        <div className="flex flex-col justify-center items-center gap-2 text-center">
+          <p className="text-xl font-bold">Guitar</p>
+          <img src="/icons/guitar.svg" className="w-36" />
+        </div>
+        <div className="grid grid-cols-8 gap-2">
+          {CHORDS.map((chord, i) => {
+            const { name, key, label } = chord;
 
-          return (
-            <div
-              key={name}
-              className={`h-[150%] flex justify-center ${
-                i % 2 === 0 ? "items-start" : "items-end"
-              }`}
-            >
-              <button
-                id={`${name}-btn`}
-                onClick={(e) => playSound(e.target, name)}
-                className="group outline-none"
+            return (
+              <div
+                key={name}
+                className={`h-[150%] flex justify-center ${
+                  i % 2 === 0 ? "items-start" : "items-end"
+                }`}
               >
-                <p className="font-semibold">{label}</p>
-                <img
-                  src={`/icons/${key}.svg`}
-                  alt="z-button"
-                  className="group-active:hidden group-focus:hidden"
-                />
-                <img
-                  src={`/icons/${key}_press.svg`}
-                  alt="z-button"
-                  className="hidden group-active:block group-focus:block"
-                />
-              </button>
-            </div>
-          );
-        })}
+                <button
+                  id={`${name}-btn`}
+                  onClick={(e) => playSound(e.target, name)}
+                  className="group outline-none"
+                >
+                  <p className="font-semibold">{label}</p>
+                  <img
+                    src={`/icons/${key}.svg`}
+                    alt="z-button"
+                    className="group-active:hidden group-focus:hidden"
+                  />
+                  <img
+                    src={`/icons/${key}_press.svg`}
+                    alt="z-button"
+                    className="hidden group-active:block group-focus:block"
+                  />
+                </button>
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <Link to="/instruments" className="fixed w-full bottom-0 left-0">
+      <Link to="/instruments">
         <img src="/icons/back.svg" className="w-full aspect-auto" />
       </Link>
     </main>

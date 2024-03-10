@@ -42,8 +42,9 @@ export default function Piano() {
   return (
     <main className="h-screen p-8 flex flex-col justify-between">
       <div>
-        <div className="flex justify-center text-center">
-          <p className="text-xl font-bold">cat pic here</p>
+        <div className="flex flex-col justify-center items-center gap-2 text-center">
+          <p className="text-xl font-bold">Piano</p>
+          <img src="/icons/piano.svg" className="w-36" />
         </div>
         <div>
           <div className="grid grid-cols-16 gap-2">
