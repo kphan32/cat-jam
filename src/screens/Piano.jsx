@@ -60,7 +60,7 @@ export default function Piano() {
                       onClick={(e) => playSound(e.target, name)}
                       className="group outline-none"
                     >
-                      <p className="font-semibold text-gray-600">{label}</p>
+                      <p className="font-semibold">{label}</p>
                       <img
                         src={`/icons/${key}.svg`}
                         alt="z-button"
@@ -91,7 +91,7 @@ export default function Piano() {
                       onClick={(e) => playSound(e.target, name)}
                       className="group outline-none"
                     >
-                      <p className="font-semibold text-gray-600">{label}</p>
+                      <p className="font-semibold">{label}</p>
                       <img
                         src={`/icons/${key}.svg`}
                         alt="z-button"
@@ -119,7 +119,7 @@ export default function Piano() {
                       onClick={(e) => playSound(e.target, name)}
                       className="group outline-none"
                     >
-                      <p className="font-semibold text-gray-600">{label}</p>
+                      <p className="font-semibold">{label}</p>
                       <img
                         src={`/icons/${key}.svg`}
                         alt="z-button"
