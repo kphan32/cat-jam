@@ -21,7 +21,7 @@ export default function Guitar() {
   useEffect(() => {
     const handleKeyPress = (e) => {
       const chord = CHORDS.find((chord) => chord.key === e.key);
-      if (!chord) return;
+      if (!chord || e.repeat) return;
 
       const btn = document.getElementById(`${chord.name}-btn`);
       btn?.focus();
