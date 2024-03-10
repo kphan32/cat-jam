@@ -54,6 +54,7 @@ export default function Guitar() {
               >
                 <button
                   id={`${name}-btn`}
+                  onTouchStart={(e) => playSound(e.target, name)}
                   onClick={(e) => playSound(e.target, name)}
                   className="group outline-none"
                 >

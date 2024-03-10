@@ -58,6 +58,7 @@ export default function Piano() {
                   <div key={name} className="col-span-2 flex justify-center">
                     <button
                       id={`${name}-btn`}
+                      onTouchStart={(e) => playSound(e.target, name)}
                       onClick={(e) => playSound(e.target, name)}
                       className="group outline-none"
                     >
@@ -89,6 +90,7 @@ export default function Piano() {
                   >
                     <button
                       id={`${name}-btn`}
+                      onTouchStart={(e) => playSound(e.target, name)}
                       onClick={(e) => playSound(e.target, name)}
                       className="group outline-none"
                     >
@@ -117,6 +119,7 @@ export default function Piano() {
                   <div key={name} className="flex justify-center">
                     <button
                       id={`${name}-btn`}
+                      onTouchStart={(e) => playSound(e.target, name)}
                       onClick={(e) => playSound(e.target, name)}
                       className="group outline-none"
                     >
